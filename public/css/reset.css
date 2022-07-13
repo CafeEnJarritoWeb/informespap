@@ -1,0 +1,17 @@
+*{box-sizing: border-box;
+}
+
+body{
+  margin-left: 0;
+}
+
+button,
+input,
+select,
+textarea{
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  
+}

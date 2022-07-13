@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css\reset.css" />
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="theme-color" content="#fbaccc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="iconos\utero_completo.png" />
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+
+    <script defer src="js\login.js" type="text/javascript"></script>
+
+    <script defer type="module" src="js\buscarpaneldecontrol.js"></script>
+    <script defer type="module" src="js/PanelDeControl.js"></script>
+
+    <title>Informe Videocolposcopía - Dra. Jazmín Montañés</title>
+  </head>
+  <body>
+    <header>
+      <div class="encabezado">
+        <h1>Informe Videocolposcopía - Dra. Jazmín Montañés</h1>
+
+        <nav class="navegacion">
+          <a class="link-navegacion" href="formulario.html"
+            >Gestión de Informes</a
+          >
+          <!--<a class="link-navegacion" href="/historico">Histórico Pacientes</a>-->
+          <a class="link-navegacion" href="index.html">Log-In</a>
+        </nav>
+      </div>
+
+      <div id="user">
+        <img id="pic" src="" alt="" />
+        <span id="name"></span>
+        <span id="email"></span>
+        <button id="logout" type="button" name="button">Log-Out</button>
+      </div>
+    </header>
+
+    <section class="contenedor-paneldecontrol">
+      <h2>Panel de Control</h2>
+
+      <div id="search">
+        <input
+          id="searchfield"
+          type="dni"
+          type="text"
+          name=""
+          value=""
+          placeholder="Buscar por DNI"
+        />
+
+        <button id="boton_buscar" type="button" name="button">
+          <img src="iconos\lupacolor.png" alt="" />
+        </button>
+      </div>
+
+      <div id="display">
+        <table class="table">
+          <thead>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>PDF</th>
+          </thead>
+          <tbody id="cuerpo_tabla"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer></footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyA6EzL6p5sOWuaRDOV6PbbMNA1K86hyPlk",
+        authDomain: "informesvideocolposcopia.firebaseapp.com",
+        databaseURL:
+          "https://informesvideocolposcopia-default-rtdb.firebaseio.com",
+        projectId: "informesvideocolposcopia",
+        storageBucket: "informesvideocolposcopia.appspot.com",
+        messagingSenderId: "259574290127",
+        appId: "1:259574290127:web:0927f6fd52dbef6ca889ba",
+        measurementId: "G-7TM19LV975",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+  </body>
+</html>

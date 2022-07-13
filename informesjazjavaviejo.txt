@@ -1,0 +1,127 @@
+let paciente = document.getElementById('paciente')
+let fecha = document.getElementById('fecha')
+let edad = document.getElementById('edad')
+let dni = document.getElementById('dni')
+let pap = document.getElementById('pap')
+let colposcopia = document.getElementById('colposcopia')
+let vulvoscopia = document.getElementById('vulvoscopia')
+let culdoscopia = document.getElementById('culdoscopia')
+let coloracion = document.getElementById('coloracion')
+let lesionesulc = document.getElementById('lesionesulc')
+let lesionescon = document.getElementById('lesionescon')
+let resultado = document.getElementById('resultado')
+let tipo1 = document.getElementById('1')
+let tipo2 = document.getElementById('2')
+let tipo3 = document.getElementById('3')
+let positivo = document.getElementById('positivo')
+let negativo = document.getElementById('negativo')
+let indefinido = document.getElementById('indefinido')
+let pendiente = document.getElementById('pendiente')
+let laboratorio = document.getElementById('laboratorio')
+let enviado = document.getElementById('enviado')
+let testdeschiller = document.getElementById('testdeschiller')
+let lugol = document.getElementById('lugol')
+let observaciones = document.getElementById('observaciones')
+let estado = document.getElementById('estado')
+
+let botonnuevoinforme = document.getElementById('boton-nuevo-informe')
+
+let botonInforme = document.getElementById('boton-informe')
+
+let data = document.getElementById('data')
+let info = document.getElementById('info')
+
+
+botonInforme.addEventListener("click", (e)=>{
+  e.preventDefault();
+guardarInfo()})
+
+botonInforme.addEventListener("click", (e)=>{
+  e.preventDefault();
+mostrame()})
+
+botonnuevoinforme.addEventListener("click", (e)=>{
+  e.preventDefault();
+  nuevoInforme();
+})
+
+
+function nuevoInforme() {
+
+  const child = {
+    dni: dni.value,
+  }
+
+  const db = firebase.database();
+  const dbRef = db.ref("pacientes" +dni);
+  const pacientenuevo = dbRef.push()
+  pacientenuevo.set(dni.value);
+
+
+}
+
+
+function guardarInfo() {
+
+const record = {
+
+dni: dni.value,
+paciente: paciente.value,
+fecha: fecha.value,
+edad: edad.value,
+pap: pap.value,
+colposcopia: colposcopia.value,
+vulvoscopia: vulvoscopia.value,
+culdoscopia: culdoscopia.value,
+tipo1: tipo1.value,
+tipo2: tipo2.value,
+tipo3: tipo3.value,
+positvo: positivo.value,
+negativo: negativo.value,
+indefinido: indefinido.value,
+pendiente: pendiente.value,
+enviado: enviado.value,
+laboratorio: laboratorio.value,
+coloracion: coloracion.value,
+lesionesulc: lesionesulc.value,
+lesionescon: lesionescon.value,
+resultado: resultado.value,
+
+lugol: lugol.value,
+observaciones: observaciones.value,
+
+}
+
+const db = firebase.database();
+const dbRef = db.ref("pacientes/DNI");
+const nuevoinforme = dbRef.push()
+nuevoinforme.set(record);
+
+
+
+ paciente.value ="";
+fecha.value ="";
+edad.value ="";
+
+ pap.value ="";
+ colposcopia.value ="";
+ vulvoscopia.value ="";
+ culdoscopia.value ="";
+ coloracion.value ="";
+ lesionesulc.value ="";
+ lesionescon.value ="";
+  lugol.value ="";
+ observaciones.value ="";
+ estado.value ="";
+ tipo1.value ="";
+ tipo2.value ="";
+tipo3.value ="";
+ positivo.value ="";
+ negativo.value ="";
+  indefinido.value ="";
+ pendiente.value ="";
+ enviado.value ="";
+ laboratorio.value ="";
+
+
+}
